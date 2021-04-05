@@ -6,14 +6,14 @@ const { key, domain } = config;
 const client = new Core(key);
 
 async function addRecord(ip) {
-  var params = {
+  const params = {
     "DomainName": domain,
     "RR": "@",
     "Type": "A",
     "Value": ip
   }
   
-  var requestOption = {
+  const requestOption = {
     method: 'POST'
   };
   const res = await client.request('AddDomainRecord', params, requestOption);
@@ -22,14 +22,14 @@ async function addRecord(ip) {
 }
 
 async function modifyRecord(id, ip) {
-  var params = {
+  const params = {
     "RecordId": id,
     "RR": "@",
     "Type": "A",
     "Value": ip
   }
   
-  var requestOption = {
+  const requestOption = {
     method: 'POST'
   };
   const res = await client.request('UpdateDomainRecord', params, requestOption);
